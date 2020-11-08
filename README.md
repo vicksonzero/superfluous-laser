@@ -7,13 +7,23 @@
 - Co-op or compete against each other to build the strongest biggest craft in the room!
 
 
+# How To Play
 
-Table of content:
+Play here: https://vicksonzero.github.io/superfluous-laser/
+
+## Controls
+
+**Keyboard**: WASD to move, Arrows to aim and shoot  
+**Touch**: Left stick to move, Right stick to aim and shoot
+
+
+# Table of content
 - [Superfluous-Laser](#superfluous-laser)
 - [How To Play](#how-to-play)
   - [Controls](#controls)
+- [Table of content](#table-of-content)
 - [Getting started](#getting-started)
-  - [Node version](#node-version)
+  - [Node JS version](#node-js-version)
   - [Start a prod server](#start-a-prod-server)
   - [Start Dev environment](#start-dev-environment)
   - [Build for Prod](#build-for-prod)
@@ -31,18 +41,10 @@ Table of content:
 - [Roadmap](#roadmap)
 - [License](#license)
 
-# How To Play
-
-Play here: https://vicksonzero.github.io/superfluous-laser/
-
-## Controls
-
-**Keyboard**: WASD to move, Arrows to aim and shoot  
-**Touch**: Left stick to move, Right stick to aim and shoot
 
 # Getting started
 
-## Node version
+## Node JS version
 
 ```
 12.18.3
@@ -170,7 +172,16 @@ Future tech stack changes:
 
 # Roadmap
 
+- [x] Basic ECS starter codebase
+- [x] Socket.IO typescript
+- [ ] Controllable player spaceship
+- [ ] Single player gameplay
+- [ ] Sync events to server, then back to other clients
+- [ ] Snapshot the state, and rollback within some time
+- [ ] More gameplay
+- [ ] ===== Expected Game Jam Cut off =====
 - [ ] Dockerize
+- [ ] More Gameplay
 
 # License
 

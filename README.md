@@ -1,7 +1,14 @@
 # Superfluous-Laser
 
+> Ten laser guns aren't going to cut it. You need Superfluous Laser! (MMO scrap space shooter)
+
+- Shoot at things to get scraps
+- Stick scraps onto your ship to build it
+- Co-op or compete against each other to build the strongest biggest craft in the room!
 
 
+
+Table of content:
 - [Superfluous-Laser](#superfluous-laser)
 - [How To Play](#how-to-play)
   - [Controls](#controls)

@@ -1,0 +1,8 @@
+import { AbstractComponent } from "./AbstractComponent";
+
+export class HpComponent extends AbstractComponent {
+    static type: "HpComponent";
+    type = HpComponent.type;
+    hp = 100;
+    maxHP = 100;
+}

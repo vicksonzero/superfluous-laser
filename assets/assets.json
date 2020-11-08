@@ -1,0 +1,40 @@
+{
+    "sprites": {
+        "files": [
+            {
+                "type": "atlasXML",
+                "key": "spaceShooter2_spritesheet",
+                "textureURL": "assets/sprites/kenney_spaceshooterextension/Spritesheet/spaceShooter2_spritesheet.png",
+                "atlasURL": "assets/sprites/kenney_spaceshooterextension/Spritesheet/spaceShooter2_spritesheet.xml"
+            },
+            {
+                "type": "image",
+                "key": "btn_mute_dark",
+                "url": "assets/sprites/onscreencontrols/Sprites/transparentLight/transparentLight15.png"
+            },
+            {
+                "type": "image",
+                "key": "btn_mute_light",
+                "url": "assets/sprites/onscreencontrols/Sprites/transparentLight/transparentLight17.png"
+            }
+        ]
+    },
+    "audios": {
+        "files": [
+            {
+                "type": "audio",
+                "key": "open",
+                "url": [
+                    "assets/sfx/270338__littlerobotsoundfactory__open-01.wav"
+                ]
+            },
+            {
+                "type": "audio",
+                "key": "shoot",
+                "url": [
+                    "assets/sfx/270343__littlerobotsoundfactory__shoot-01.wav"
+                ]
+            }
+        ]
+    }
+}

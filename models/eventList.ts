@@ -9,7 +9,7 @@ export type InputAction = {
     type: 'input';
     isSync: true;
     who: number;
-    key: 'up' | 'down' | 'left' | 'right' | 'aim-up' | 'aim-down' | 'aim-left' | 'aim-right' | 'action';
+    key: 'up' | 'down' | 'left' | 'right' | 'aimUp' | 'aimDown' | 'aimLeft' | 'aimRight' | 'action';
     value: 'up' | 'down';
 }
 

@@ -5,9 +5,9 @@ export class PlayerInput {
     down: boolean = false;
     left: boolean = false;
     right: boolean = false;
-    'aim-up': boolean = false;
-    'aim-down': boolean = false;
-    'aim-left': boolean = false;
-    'aim-right': boolean = false;
+    aimUp: boolean = false;
+    aimDown: boolean = false;
+    aimLeft: boolean = false;
+    aimRight: boolean = false;
     action: boolean = false;
 }

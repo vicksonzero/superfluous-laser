@@ -4,7 +4,7 @@ type Image = Phaser.GameObjects.Image;
 
 
 export class SpriteComponent extends AbstractComponent {
-    static type: "SpriteComponent";
+    static type = 'SpriteComponent' as 'SpriteComponent';
     type = SpriteComponent.type;
     bodySprite: Image;
 }

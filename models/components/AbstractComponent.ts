@@ -10,6 +10,7 @@ export abstract class AbstractComponent {
         public entityID: number
     ) { }
 
+    // serialize
     toJSON() {
         return JSON.stringify(this);
     }

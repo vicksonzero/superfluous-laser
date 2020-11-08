@@ -1,9 +1,10 @@
 import { ComponentDef } from '../componentList';
+import { TransformComponent } from '../components/TransformComponent';
 
 export function PlayerEntity(): ComponentDef[] {
     return [
         {
-            type: 'TransformComponent',
+            type: TransformComponent.type,
             x: 0,
             y: 0,
             rotation: 0,

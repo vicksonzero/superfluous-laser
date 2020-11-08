@@ -6,7 +6,7 @@ import { AbstractComponent } from "./AbstractComponent";
 // }
 
 export class PickUpComponent extends AbstractComponent {
-    static type: "PickUpComponent";
+    static type = 'PickUpComponent' as 'PickUpComponent';
     type = PickUpComponent.type;
     armLength = 30;
     armRadius = 20;

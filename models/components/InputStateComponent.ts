@@ -3,7 +3,7 @@ import { AbstractComponent } from "./AbstractComponent";
 export type InputState = 'idle' | 'down' | 'hold' | 'up';
 
 export class InputStateComponent extends AbstractComponent {
-    static type: "InputStateComponent";
+    static type = 'InputStateComponent' as 'InputStateComponent';
     type = InputStateComponent.type;
     up: InputState;
     down: InputState;

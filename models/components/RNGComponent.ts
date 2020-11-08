@@ -2,7 +2,7 @@ import * as seedrandom from "seedrandom";
 import { AbstractComponent } from "./AbstractComponent";
 
 export class RNGComponent extends AbstractComponent {
-    static type: "RNGComponent";
+    static type = 'RNGComponent' as 'RNGComponent';
     type = RNGComponent.type;
 
     seedState: object;

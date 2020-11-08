@@ -37,7 +37,7 @@ Play here: https://vicksonzero.github.io/superfluous-laser/
 
 ## Controls
 
-**Keyboard**: WASD to move, Arrows to aim and shoot
+**Keyboard**: WASD to move, Arrows to aim and shoot  
 **Touch**: Left stick to move, Right stick to aim and shoot
 
 # Getting started
@@ -75,7 +75,8 @@ npm run build
 ```
 
 ### Github Pages
-If you set up `gh-pages` on github, commit and push `/client-dist/` to github to host the game. See `/index.html` for its link to `/client-dist/bundle.js`
+If you set up `gh-pages` on github, commit and push `/client-dist/` to github to host the game.  
+See `/index.html` for its link to `/client-dist/bundle.js`
 
 ### Itch.io
 Alternatively, run `npm run itch` to generate a zip file suitable to be deployed to itch.io
@@ -100,8 +101,8 @@ Alternatively, run `npm run itch` to generate a zip file suitable to be deployed
 
 ## More Docs
 
-https://photonstorm.github.io/phaser3-docs
-https://socket.io/docs/
+- https://photonstorm.github.io/phaser3-docs
+- https://socket.io/docs/
 
 
 ## Important links
@@ -112,6 +113,7 @@ https://socket.io/docs/
 # NPM scripts
 
 ### Main tasks
+
 ```
 npm start                        Single command to start prod server. Does not include build
 npm run build                    Builds client and server scripts (they are both in typescript)
@@ -125,7 +127,7 @@ npm run lint                     lints all existing client scripts
 ```
 
 ### Sub tasks
-Tasks for composition / alias. 
+Tasks for composition / alias.   
 Usually have no need to call these directly.
 ```
 npm run create-itch-zip

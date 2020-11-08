@@ -6,14 +6,22 @@
 - [How To Play](#how-to-play)
   - [Controls](#controls)
 - [Getting started](#getting-started)
+  - [Node version](#node-version)
   - [Start a prod server](#start-a-prod-server)
   - [Start Dev environment](#start-dev-environment)
   - [Build for Prod](#build-for-prod)
+    - [Github Pages](#github-pages)
+    - [Itch.io](#itchio)
+- [How to use codebase](#how-to-use-codebase)
   - [How to read logs made with `log()`](#how-to-read-logs-made-with-log)
   - [More Docs](#more-docs)
   - [Important links](#important-links)
+- [NPM scripts](#npm-scripts)
+    - [Main tasks](#main-tasks)
+    - [Sub tasks](#sub-tasks)
 - [Tech Stack](#tech-stack)
 - [Credits](#credits)
+- [Roadmap](#roadmap)
 - [License](#license)
 
 # How To Play
@@ -26,6 +34,12 @@ Play here: https://vicksonzero.github.io/superfluous-laser/
 **Touch**: Left stick to move, Right stick to aim and shoot
 
 # Getting started
+
+## Node version
+
+```
+12.18.3
+```
 
 ## Start a prod server
 
@@ -45,11 +59,6 @@ npm install
 npm run dev
 ```
 
-It is a share-screen offline multiplayer game. we do all development work onto `master`, and it will be seen on gh-pages    
-Entry point is `client.ts`  
-Main Phaser scene is `MainScene.ts` (duh)  
-All meat starts with the `create()` and `update()` calls
-
 
 ## Build for Prod
 
@@ -58,7 +67,21 @@ npm install
 npm run build
 ```
 
+### Github Pages
 If you set up `gh-pages` on github, commit and push `/client-dist/` to github to host the game. See `/index.html` for its link to `/client-dist/bundle.js`
+
+### Itch.io
+Alternatively, run `npm run itch` to generate a zip file suitable to be deployed to itch.io
+
+
+# How to use codebase
+
+- It is a server-client multiplayer game. we do all development work onto `master`.
+- Entry point is `client.ts`  
+- Main Phaser scene is `MainScene.ts` (duh)  
+- `/models/components/*` Stores all data that can be snapshotted and restored
+- `/models/systems/*` Stores all "reducers" that advances the state
+- `/models/entities/*` Stores all entities, which are set of components to be instantiated together
 
 ## How to read logs made with `log()`
 
@@ -71,19 +94,57 @@ If you set up `gh-pages` on github, commit and push `/client-dist/` to github to
 ## More Docs
 
 https://photonstorm.github.io/phaser3-docs
+https://socket.io/docs/
+
 
 ## Important links
 
---
+// TODO
+
+
+# NPM scripts
+
+### Main tasks
+```
+npm start                        Single command to start prod server. Does not include build
+npm run build                    Builds client and server scripts (they are both in typescript)
+npm run dev                      Single command to start dev environment
+npm run dev-l                    npm run dev, but pipes output into a file
+npm run dev-server               Start dev server
+npm run dev-client               Start dev client
+npm run itch                     Build client, and pack client-dist and assets into a zip file
+npm run test                     Automated testing (always a good thing that no one does)
+npm run lint                     lints all existing client scripts
+```
+
+### Sub tasks
+Tasks for composition / alias. 
+Usually have no need to call these directly.
+```
+npm run create-itch-zip
+npm run build-client
+npm run watch-webpack
+npm run watch-node
+npm run watch-ts
+npm run webpack
+npm run tsc
+npm run client-size-analyse
+```
+
 
 
 # Tech Stack
 
-- [x] typescript (For Static type)
-- [x] webpack (For client side dependency management; server side will just use `require()` after running tsc)
-- [x] phaser 3 (For Graphics and some game rules)
-- [x] box2d.ts (For Stand-alone Physics Engine)
-- [x] debug.js (for logging with tags)
+- typescript (For Static type)
+- webpack (For client side dependency management)
+- phaser 3 (For Graphics)
+- socketIO 3 (For client-server multiplayer communication)
+- box2d.ts (For Stand-alone Physics Engine)
+- debug.js (for logging with tags)
+
+Future tech stack changes:
+- Graphics: May downgrade into PIXI.js when ECS is done
+- Multiplayer: May downgrade into websocket with binary packet construction
 
 
 # Credits
@@ -96,6 +157,11 @@ https://photonstorm.github.io/phaser3-docs
   - Kenney.nl (Once again!)
 - Sound
   - To be determined
+
+
+# Roadmap
+
+- [ ] Dockerize
 
 # License
 

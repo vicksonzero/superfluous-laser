@@ -33,7 +33,10 @@ export function networkServerSystem(frameID: number, { states, eventQueue }: Mod
         log('Starting socket.io...');
         const io = component.io = new ioServer(server, {
             cors: {
-                origin: "http://127.0.0.1:8080",
+                origin: [
+                    "http://127.0.0.1:8080",
+                    "http://localhost:8080",
+                ],
                 methods: ["GET", "POST"],
                 allowedHeaders: ["my-custom-header"],
                 credentials: true

@@ -175,13 +175,22 @@ Future tech stack changes:
 - [x] Basic ECS starter codebase
 - [x] Socket.IO typescript
 - [ ] Controllable player spaceship
-- [ ] Single player gameplay
+- [ ] Single player gameplay (local)
+  - [ ] spawn player
+  - [ ] player movement
+  - [ ] shoot bullets
+  - [ ] blocks collision / docking
+  - [ ] attach guns
+  - [ ] spawn asteroids that contains blocks
 - [ ] Sync events to server, then back to other clients
 - [ ] Snapshot the state, and rollback within some time
+- [ ] Mobile multi-touch input
 - [ ] More gameplay
 - [ ] ===== Expected Game Jam Cut off =====
 - [ ] Dockerize
-- [ ] More Gameplay
+- [ ] Booster blocks, mass system
+- [ ] kinetic weapons, ammo system, shield / armour system
+- [ ] more than one room
 
 # License
 

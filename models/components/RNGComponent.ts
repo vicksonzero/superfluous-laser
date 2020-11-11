@@ -1,6 +1,12 @@
 import * as seedrandom from "seedrandom";
 import { AbstractComponent } from "./AbstractComponent";
 
+// type KeysMatching<T, V> = NonNullable<
+//     { [K in keyof T]: T[K] extends V ? T[K] : never }
+// >;
+
+// type t = KeysMatching<RNGComponent, number | string>;
+
 export class RNGComponent extends AbstractComponent {
     static type = 'RNGComponent' as 'RNGComponent';
     type = RNGComponent.type;

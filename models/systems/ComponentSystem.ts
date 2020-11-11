@@ -4,6 +4,12 @@ import { Component, ComponentDef, componentTypes } from "../componentList";
 export type ComponentMap = Partial<{ [key in Component['type']]: Component[] }>;
 export type SingletonComponentMap = Partial<{ [key in Component['type']]: number }>;
 
+
+import * as Debug from 'debug';
+const verbose = Debug('superfluous-laser:ComponentSystem:verbose');
+const log = Debug('superfluous-laser:ComponentSystem:log');
+
+
 export class ComponentSystem {
     // private pointer = 0;
     private store: Component[];
@@ -11,6 +17,8 @@ export class ComponentSystem {
 
     names: string[];
     singletonCache: SingletonComponentMap;
+
+    private _hasChanges = false;
 
 
     constructor() {
@@ -20,6 +28,7 @@ export class ComponentSystem {
     }
 
     createEntity(name = 'entity', componentDefs: ComponentDef[] = []): number {
+        log('createEntity');
         const entityID = ++this.entityCounter;
         for (const componentDef of componentDefs) {
             this.add(entityID, componentDef);
@@ -76,10 +85,19 @@ export class ComponentSystem {
 
         // this.store[this.pointer] = newData;
         this.store[pointer] = newData;
+        this._hasChanges = true;
+    }
+
+    hasChanges() {
+        return this._hasChanges;
     }
 
     remove(componentID: number) {
         throw new Error('not yet implemented');
+    }
+
+    beforeFixedUpdate() {
+        this._hasChanges = false;
     }
 
     clearSingletonCache() {
@@ -88,6 +106,15 @@ export class ComponentSystem {
 
     getEntityName(entityID: number) {
         return this.names[entityID];
+    }
+
+    hasSingletonComponent(type: Component['type']): boolean {
+        if (this.singletonCache[type] === undefined) {
+            this.singletonCache[type] = this.store.findIndex(({ type: t }) => {
+                return t === type;
+            });
+        }
+        return this.singletonCache[type] !== -1;
     }
 
     getSingletonComponent(type: Component['type']): Component {
@@ -200,7 +227,8 @@ export class ComponentSystem {
     //     }
     // }
 
-    toJSON() {
+    toJSON(isBeautify = false) {
+        if (isBeautify) return JSON.stringify(this.store, null, 4);
         return JSON.stringify(this.store);
     }
 }

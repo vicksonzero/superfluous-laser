@@ -199,7 +199,7 @@ export class MainScene extends Phaser.Scene {
     }
 
 
-    bindInput() {
+    private bindInput() {
         (this.controlsList[0].up
             .on('down', (_: any) => { this.onCursorPressed('input', 0, 'up', 'down'); })
             .on('up', (_: any) => { this.onCursorPressed('input', 0, 'up', 'up'); })
@@ -248,7 +248,7 @@ export class MainScene extends Phaser.Scene {
     }
 
     onCursorPressed(type: InputAction['type'], who: number, key: InputAction['key'], value: InputAction['value']) {
-
+        log('onCursorPressed');
         this.model.tryAddActionAt(this.frameID + 1, { type, isSync: true, who, key, value });
     }
 

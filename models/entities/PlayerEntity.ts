@@ -9,12 +9,12 @@ export function PlayerEntity(): ComponentDef[] {
             y: 0,
             rotation: 0,
         },
-        {
-            type: 'PhysicsBodyComponent',
-            body: null,
-            fixtureDef: null,
-            bodyDef: null,
-        },
+        // {
+        //     type: 'PhysicsBodyComponent',
+        //     body: null,
+        //     fixtureDef: null,
+        //     bodyDef: null,
+        // },
         {
             type: 'InputStateComponent',
             up: 'idle',

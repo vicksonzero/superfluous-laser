@@ -23,6 +23,7 @@ export class EventQueue {
 
     getEventsOfFrame(frameID: number, type?: IAction['type']): IAction[] {
         const events = this.queue.get(frameID) ?? [];
+        
         if (type != null) {
             return events.filter(e => e.type === type);
         }

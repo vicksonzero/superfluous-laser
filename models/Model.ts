@@ -9,6 +9,10 @@ import { PlayerInput } from './components/PlayerInput';
 import { TransformComponent } from './components/TransformComponent';
 import { ISystem } from './ISystem';
 
+import * as Debug from 'debug';
+const verbose = Debug('superfluous-laser:Model:verbose');
+const log = Debug('superfluous-laser:Model:log');
+const logState = Debug('superfluous-laser:Model:logState');
 
 export class Model {
     states: ComponentSystem;
@@ -20,6 +24,7 @@ export class Model {
     distanceMatrixSystem: DistanceMatrixSystem;
     playerInputs: PlayerInput[];
     systems: ISystem[];
+    isDebuggingState = true;
 
     constructor() {
         // this.replayManager = new ReplayManager();
@@ -43,6 +48,8 @@ export class Model {
     }
 
     fixedUpdate(frameID: number, fixedTime: number, frameSize: number) {
+        this.states.beforeFixedUpdate();
+
         for (const callback of this.systems) {
             callback(frameID, this);
         }
@@ -59,8 +66,14 @@ export class Model {
 
         // verbose(`fixedUpdate end (frame-${this.frameID} ${this.fixedElapsedTime}ms ${this.fixedTime.now}ms)`);
         this.fixedLateUpdate(frameID, fixedTime, frameSize);
+
+        if (this.isDebuggingState && this.states.hasChanges()) {
+            log(frameID, 'states updated');
+            logState(this.states.toJSON(true));
+        }
     }
-    fixedLateUpdate(frameID: number, fixedTime: number, frameSize: number) {
+
+    private fixedLateUpdate(frameID: number, fixedTime: number, frameSize: number) {
 
     }
 

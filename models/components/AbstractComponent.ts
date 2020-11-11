@@ -12,10 +12,10 @@ export abstract class AbstractComponent {
 
     // serialize
     toJSON() {
-        return JSON.stringify(this);
+        return this;
     }
-    assign(obj: object) {
-        Object.assign(this, obj);
+    assign(...obj: object[]) {
+        Object.assign(this, ...obj);
     }
 
     toArrayBuffer() {

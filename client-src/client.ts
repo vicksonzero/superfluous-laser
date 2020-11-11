@@ -7,6 +7,8 @@ import { LoadingScene } from "./scenes/LoadingScene";
 import '../utils/window';
 import { Model } from '../models/Model';
 import { networkClientSystem } from '../models/systems/networkClientSystem';
+import { controllerStateSystem } from '../models/systems/controllerStateSystem';
+import { spawnPlayerSystem } from '../models/systems/spawnPlayerSystem';
 
 
 window._Debug = Debug;
@@ -50,7 +52,9 @@ window.onload = () => {
     const physicsSystem = new PhysicsSystem();
     const model = (window as any)._model = new Model();
     model.init([
-        networkClientSystem,
+        // networkClientSystem,
+        spawnPlayerSystem,
+        controllerStateSystem,
     ]);
 
     game.registry.merge({

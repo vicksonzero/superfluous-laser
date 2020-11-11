@@ -1,3 +1,4 @@
+import { LocalPlayerComponent } from './components/LocalPlayerComponent';
 import { NetworkServerComponent } from './components/NetworkServerComponent';
 import { AbstractComponent, Def } from "./components/AbstractComponent";
 import { EmptyComponent } from "./components/EmptyComponent";
@@ -22,6 +23,7 @@ export type ComponentDef = (
     Def<NetworkClientComponent> |
     Def<NetworkServerComponent> |
     Def<RNGComponent> |
+    Def<LocalPlayerComponent> |
     Def<EmptyComponent>
 ); // union more types to complete the list
 
@@ -35,6 +37,7 @@ export const componentTypes = {
     NetworkClientComponent,
     NetworkServerComponent,
     RNGComponent,
+    LocalPlayerComponent,
     EmptyComponent,
 };
 

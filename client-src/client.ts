@@ -9,6 +9,7 @@ import { Model } from '../models/Model';
 import { networkClientSystem } from '../models/systems/networkClientSystem';
 import { controllerStateSystem } from '../models/systems/controllerStateSystem';
 import { spawnPlayerSystem } from '../models/systems/spawnPlayerSystem';
+import { naiveMovementSystem } from '../models/systems/naiveMovementSystem';
 
 
 window._Debug = Debug;
@@ -55,6 +56,7 @@ window.onload = () => {
         // networkClientSystem,
         spawnPlayerSystem,
         controllerStateSystem,
+        naiveMovementSystem,
     ]);
 
     game.registry.merge({

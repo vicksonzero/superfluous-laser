@@ -1,3 +1,4 @@
+import { NaiveMovementComponent } from './components/NaiveMovementComponent';
 import { LocalPlayerComponent } from './components/LocalPlayerComponent';
 import { NetworkServerComponent } from './components/NetworkServerComponent';
 import { AbstractComponent, Def } from "./components/AbstractComponent";
@@ -24,6 +25,7 @@ export type ComponentDef = (
     Def<NetworkServerComponent> |
     Def<RNGComponent> |
     Def<LocalPlayerComponent> |
+    Def<NaiveMovementComponent> |
     Def<EmptyComponent>
 ); // union more types to complete the list
 
@@ -38,6 +40,7 @@ export const componentTypes = {
     NetworkServerComponent,
     RNGComponent,
     LocalPlayerComponent,
+    NaiveMovementComponent,
     EmptyComponent,
 };
 

@@ -6,6 +6,6 @@ export class TransformComponent extends AbstractComponent {
     type = TransformComponent.type;
     x = 0;
     y = 0;
-    rotation = 0; // in radians
+    angle = 0; // in degrees
 
 }

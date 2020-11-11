@@ -222,20 +222,20 @@ export class MainScene extends Phaser.Scene {
         );
 
         (this.controlsList[1].up
-            .on('down', (_: any) => { this.onCursorPressed('input', 1, 'up', 'down'); })
-            .on('up', (_: any) => { this.onCursorPressed('input', 1, 'up', 'up'); })
+            .on('down', (_: any) => { this.onCursorPressed('input', 1, 'aimUp', 'down'); })
+            .on('up', (_: any) => { this.onCursorPressed('input', 1, 'aimUp', 'up'); })
         );
         (this.controlsList[1].down
-            .on('down', (_: any) => { this.onCursorPressed('input', 1, 'down', 'down'); })
-            .on('up', (_: any) => { this.onCursorPressed('input', 1, 'down', 'up'); })
+            .on('down', (_: any) => { this.onCursorPressed('input', 1, 'aimDown', 'down'); })
+            .on('up', (_: any) => { this.onCursorPressed('input', 1, 'aimDown', 'up'); })
         );
         (this.controlsList[1].left
-            .on('down', (_: any) => { this.onCursorPressed('input', 1, 'left', 'down'); })
-            .on('up', (_: any) => { this.onCursorPressed('input', 1, 'left', 'up'); })
+            .on('down', (_: any) => { this.onCursorPressed('input', 1, 'aimLeft', 'down'); })
+            .on('up', (_: any) => { this.onCursorPressed('input', 1, 'aimLeft', 'up'); })
         );
         (this.controlsList[1].right
-            .on('down', (_: any) => { this.onCursorPressed('input', 1, 'right', 'down'); })
-            .on('up', (_: any) => { this.onCursorPressed('input', 1, 'right', 'up'); })
+            .on('down', (_: any) => { this.onCursorPressed('input', 1, 'aimRight', 'down'); })
+            .on('up', (_: any) => { this.onCursorPressed('input', 1, 'aimRight', 'up'); })
         );
         (this.controlsList[1].action
             .on('down', (_: any) => { this.onCursorPressed('input', 1, 'action', 'down'); })

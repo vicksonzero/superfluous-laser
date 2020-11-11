@@ -7,7 +7,7 @@ export function PlayerEntity(): ComponentDef[] {
             type: TransformComponent.type,
             x: 0,
             y: 0,
-            rotation: 0,
+            angle: 0,
         },
         // {
         //     type: 'PhysicsBodyComponent',
@@ -15,6 +15,10 @@ export function PlayerEntity(): ComponentDef[] {
         //     fixtureDef: null,
         //     bodyDef: null,
         // },
+        {
+            type: 'NaiveMovementComponent',
+            speed: 1,
+        },
         {
             type: 'InputStateComponent',
             up: 'idle',

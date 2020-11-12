@@ -55,19 +55,19 @@ function moveATransform(frameID: number, { eventQueue, states }: Model) {
 
             if (inputState.aimRight === 'down' || inputState.aimRight === 'hold') {
                 needChange = true;
-                newState.angle = 0;
+                newState.aimAngle = 0;
             }
             if (inputState.aimDown === 'down' || inputState.aimDown === 'hold') {
                 needChange = true;
-                newState.angle = 90;
+                newState.aimAngle = 90;
             }
             if (inputState.aimLeft === 'down' || inputState.aimLeft === 'hold') {
                 needChange = true;
-                newState.angle = 180;
+                newState.aimAngle = 180;
             }
             if (inputState.aimUp === 'down' || inputState.aimUp === 'hold') {
                 needChange = true;
-                newState.angle = 270;
+                newState.aimAngle = 270;
             }
 
             if (needChange) {

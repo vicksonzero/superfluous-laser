@@ -10,6 +10,8 @@ import { networkClientSystem } from '../models/systems/networkClientSystem';
 import { controllerStateSystem } from '../models/systems/controllerStateSystem';
 import { spawnPlayerSystem } from '../models/systems/spawnPlayerSystem';
 import { naiveMovementSystem } from '../models/systems/naiveMovementSystem';
+import { spriteRenderer } from '../models/systems/spriteRenderer';
+import { clientStartupSystem_ } from '../models/systems/clientStartupSystem';
 
 
 window._Debug = Debug;
@@ -54,9 +56,11 @@ window.onload = () => {
     const model = (window as any)._model = new Model();
     model.init([
         // networkClientSystem,
+        clientStartupSystem_(game),
         spawnPlayerSystem,
         controllerStateSystem,
         naiveMovementSystem,
+        spriteRenderer,
     ]);
 
     game.registry.merge({

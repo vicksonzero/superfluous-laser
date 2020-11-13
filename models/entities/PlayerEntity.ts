@@ -1,13 +1,20 @@
 import { ComponentDef } from '../componentList';
+import { SpriteComponent } from '../components/SpriteComponent';
 import { TransformComponent } from '../components/TransformComponent';
 
-export function PlayerEntity(): ComponentDef[] {
+export function PlayerEntity(x?: number, y?: number): ComponentDef[] {
     return [
         {
             type: TransformComponent.type,
-            x: 0,
-            y: 0,
+            x: x ?? 0,
+            y: y ?? 0,
             angle: 0,
+        },
+        {
+            type: SpriteComponent.type,
+            key: 'spaceShooter2_spritesheet',
+            frame: 'spaceShips_001',
+            origin: { x: 0.5, y: 0.5 },
         },
         // {
         //     type: 'PhysicsBodyComponent',
@@ -17,7 +24,7 @@ export function PlayerEntity(): ComponentDef[] {
         // },
         {
             type: 'NaiveMovementComponent',
-            speed: 1,
+            speed: 10,
         },
         {
             type: 'InputStateComponent',

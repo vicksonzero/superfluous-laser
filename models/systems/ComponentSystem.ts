@@ -28,7 +28,7 @@ export class ComponentSystem {
     }
 
     createEntity(name = 'entity', componentDefs: ComponentDef[] = []): number {
-        log('createEntity');
+        log('createEntity', name);
         const entityID = ++this.entityCounter;
         for (const componentDef of componentDefs) {
             this.add(entityID, componentDef);
@@ -117,8 +117,8 @@ export class ComponentSystem {
         return this.singletonCache[type] !== -1;
     }
 
-    getSingletonComponent(type: Component['type']): Component {
-        if (this.singletonCache[type] === undefined) {
+    getSingletonComponent<T extends Component>(type: T['type']): T {
+        if (this.singletonCache[type] === undefined || this.singletonCache[type] === -1) {
             this.singletonCache[type] = this.store.findIndex(({ type: t }) => {
                 return t === type;
             });
@@ -129,7 +129,7 @@ export class ComponentSystem {
             this.singletonCache[type] = this.createSingletonEntity(name, def).componentID;
         }
 
-        return this.store[this.singletonCache[type]!];
+        return this.store[this.singletonCache[type]!] as T;
     }
 
     getComponent(entityID: number, type: Component['type']) {

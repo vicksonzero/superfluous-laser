@@ -12,7 +12,7 @@ export abstract class AbstractComponent {
 
     // serialize
     toJSON() {
-        return this;
+        return this as any;
     }
     assign(...obj: object[]) {
         Object.assign(this, ...obj);
@@ -31,5 +31,11 @@ export abstract class AbstractComponent {
             name: 'entity',
             def: {}
         };
+    }
+
+    static clone<T extends AbstractComponent>(ctor: new (componentID: number, entityID: number) => T, old: T) {
+        const newObj = new ctor(old.componentID, old.entityID);
+        newObj.assign(old);
+        return newObj;
     }
 };

@@ -69,7 +69,8 @@ export class Model {
 
         if (this.isDebuggingState && this.states.hasChanges()) {
             log(frameID, 'states updated');
-            logState(this.states.toJSON(true));
+            // logState(this.states.toJSON(true));
+            logState(JSON.stringify([...this.states.getComponentsByTypes([TransformComponent.type])], null, 2));
         }
     }
 

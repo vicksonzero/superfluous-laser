@@ -61,24 +61,26 @@ function advanceAllInputStates(frameID: number, { eventQueue, states }: Model) {
 
 function registerNewInputStates(frameID: number, { eventQueue, states }: Model) {
     const events = eventQueue.getEventsOfFrame(frameID, 'input') as InputAction[];
-    // if (events.length) log(frameID, JSON.stringify(events));
+    if (events.length) log(frameID, JSON.stringify(events));
     const inputEntities = [...states.getComponentsByTypes([InputStateComponent.type, LocalPlayerComponent.type])];
     // if (inputEntities.length) log(frameID, JSON.stringify(inputEntities));
 
-    for (const { who, key, value } of events) {
-        for (const [entityID, { InputStateComponent: inputStateComponent, LocalPlayerComponent: local }] of inputEntities) {
-            log(JSON.stringify(inputEntities));
-            const component = inputStateComponent![0] as InputStateComponent;
-            const newComponent = new InputStateComponent(component.componentID, component.entityID);
-            newComponent.assign(
-                component,
-                {
+    for (const [entityID, { InputStateComponent: inputStateComponents }] of inputEntities) {
+        const component = inputStateComponents![0] as InputStateComponent;
+        const result = {
 
-                    [key]: value,
-                } as Partial<Def<InputStateComponent>>
-            );
+        } as Partial<Def<InputStateComponent>>
+        for (const { who, key, value } of events) {
+            // log(JSON.stringify(inputEntities));
+            result[key] = value;
 
-            states.updateComponent(newComponent);
+
         }
+        const newComponent = new InputStateComponent(component.componentID, component.entityID);
+        newComponent.assign(
+            component,
+            result,
+        );
+        states.updateComponent(newComponent);
     }
 }

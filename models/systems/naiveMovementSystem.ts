@@ -53,22 +53,24 @@ function moveATransform(frameID: number, { eventQueue, states }: Model) {
                 newState.x = transform.x + speed;
             }
 
-            if (inputState.aimRight === 'down' || inputState.aimRight === 'hold') {
-                needChange = true;
-                newState.aimAngle = 0;
-            }
-            if (inputState.aimDown === 'down' || inputState.aimDown === 'hold') {
-                needChange = true;
-                newState.aimAngle = 90;
-            }
+            const directionVector = [0, 0];
             if (inputState.aimLeft === 'down' || inputState.aimLeft === 'hold') {
                 needChange = true;
-                newState.aimAngle = 180;
+                directionVector[0] = -1;
+            }
+            if (inputState.aimRight === 'down' || inputState.aimRight === 'hold') {
+                needChange = true;
+                directionVector[0] = 1;
             }
             if (inputState.aimUp === 'down' || inputState.aimUp === 'hold') {
                 needChange = true;
-                newState.aimAngle = 270;
+                directionVector[1] = -1;
             }
+            if (inputState.aimDown === 'down' || inputState.aimDown === 'hold') {
+                needChange = true;
+                directionVector[1] = 1;
+            }
+            newState.angle = Math.atan2(directionVector[1], directionVector[0]) / Math.PI * 180 - 90;
 
             if (needChange) {
                 const newComponent = new TransformComponent(inputState.componentID, inputState.entityID);

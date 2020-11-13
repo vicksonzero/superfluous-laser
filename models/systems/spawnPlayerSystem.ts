@@ -33,7 +33,7 @@ function spawnNetworkPlayerIfNeeded(frameID: number, { states, eventQueue }: Mod
 
     for (const { who, value } of events) {
         if (value === 'connect') {
-            const playerID = states.createEntity('player', PlayerEntity());
+            const playerID = states.createEntity('player', PlayerEntity(100, 100));
             states.add(playerID, {
                 type: 'LocalPlayerComponent',
             });
@@ -45,7 +45,7 @@ function spawnNetworkPlayerIfNeeded(frameID: number, { states, eventQueue }: Mod
 function spawnSinglePlayer({ states }: Model) {
     const localPlayerComponent = [...states.getComponentsByTypes([LocalPlayerComponent.type])];
     if (localPlayerComponent.length > 0) return;
-    const playerID = states.createEntity('player', PlayerEntity());
+    const playerID = states.createEntity('player', PlayerEntity(100, 100));
     states.add(playerID, {
         type: LocalPlayerComponent.type,
     });

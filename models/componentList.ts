@@ -1,16 +1,19 @@
-import { NaiveMovementComponent } from './components/NaiveMovementComponent';
-import { LocalPlayerComponent } from './components/LocalPlayerComponent';
-import { NetworkServerComponent } from './components/NetworkServerComponent';
+import { PhaserComponent } from './components/PhaserComponent';
 import { AbstractComponent, Def } from "./components/AbstractComponent";
 import { EmptyComponent } from "./components/EmptyComponent";
-import { InputStateComponent } from './components/InputStateComponent';
-import { PhysicsBodyComponent } from './components/PhysicsBodyComponent';
-import { TransformComponent } from './components/TransformComponent';
-import { PickUpComponent } from './components/PickUpComponent';
-import { HpComponent } from './components/HpComponent';
 import { HpBarComponent } from './components/HpBarComponent';
-import { RNGComponent } from "./components/RNGComponent";
+import { HpComponent } from './components/HpComponent';
+import { InputStateComponent } from './components/InputStateComponent';
+import { LocalPlayerComponent } from './components/LocalPlayerComponent';
+import { NaiveMovementComponent } from './components/NaiveMovementComponent';
 import { NetworkClientComponent } from "./components/NetworkClientComponent";
+import { NetworkServerComponent } from './components/NetworkServerComponent';
+import { PhysicsBodyComponent } from './components/PhysicsBodyComponent';
+import { PickUpComponent } from './components/PickUpComponent';
+import { RNGComponent } from "./components/RNGComponent";
+import { SpriteComponent } from './components/SpriteComponent';
+import { SpriteListComponent } from './components/SpriteListComponent';
+import { TransformComponent } from './components/TransformComponent';
 
 
 export type Component = AbstractComponent & ComponentDef;
@@ -26,6 +29,9 @@ export type ComponentDef = (
     Def<RNGComponent> |
     Def<LocalPlayerComponent> |
     Def<NaiveMovementComponent> |
+    Def<SpriteComponent> |
+    Def<SpriteListComponent> |
+    Def<PhaserComponent> |
     Def<EmptyComponent>
 ); // union more types to complete the list
 
@@ -41,6 +47,9 @@ export const componentTypes = {
     RNGComponent,
     LocalPlayerComponent,
     NaiveMovementComponent,
+    SpriteComponent,
+    SpriteListComponent,
+    PhaserComponent,
     EmptyComponent,
 };
 

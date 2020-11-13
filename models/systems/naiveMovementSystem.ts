@@ -36,40 +36,48 @@ function moveATransform(frameID: number, { eventQueue, states }: Model) {
             const newState: Partial<Def<TransformComponent>> = {};
             let needChange = false;
 
+            const moveVector = [0, 0];
             if (inputState.up === 'down' || inputState.up === 'hold') {
                 needChange = true;
-                newState.y = transform.y - speed;
+                moveVector[1] = -1;
             }
             if (inputState.down === 'down' || inputState.down === 'hold') {
                 needChange = true;
-                newState.y = transform.y + speed;
+                moveVector[1] = 1;
             }
             if (inputState.left === 'down' || inputState.left === 'hold') {
                 needChange = true;
-                newState.x = transform.x - speed;
+                moveVector[0] = -1;
             }
             if (inputState.right === 'down' || inputState.right === 'hold') {
                 needChange = true;
-                newState.x = transform.x + speed;
+                moveVector[0] = 1;
             }
+            newState.x = transform.x + moveVector[0] * speed;
+            newState.y = transform.y + moveVector[1] * speed;
 
-            const directionVector = [0, 0];
+
+            const aimVector = [0, 0];
+
             if (inputState.aimLeft === 'down' || inputState.aimLeft === 'hold') {
                 needChange = true;
-                directionVector[0] = -1;
+                aimVector[0] = -1;
             }
             if (inputState.aimRight === 'down' || inputState.aimRight === 'hold') {
                 needChange = true;
-                directionVector[0] = 1;
+                aimVector[0] = 1;
             }
             if (inputState.aimUp === 'down' || inputState.aimUp === 'hold') {
                 needChange = true;
-                directionVector[1] = -1;
+                aimVector[1] = -1;
             }
             if (inputState.aimDown === 'down' || inputState.aimDown === 'hold') {
                 needChange = true;
-                directionVector[1] = 1;
+                aimVector[1] = 1;
             }
+
+            const directionVector = (aimVector[0] !== 0 || aimVector[1] !== 0) ? aimVector : moveVector;
+            
             newState.angle = Math.atan2(directionVector[1], directionVector[0]) / Math.PI * 180 - 90;
 
             if (needChange) {

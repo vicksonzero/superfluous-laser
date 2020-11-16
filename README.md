@@ -177,7 +177,8 @@ Future tech stack changes:
 - [x] Controllable player spaceship
 - [ ] Single player gameplay (local)
   - [x] spawn player
-  - [ ] player movement
+  - [ ] naive player movement
+  - [ ] add back box2d
   - [ ] shoot bullets
   - [ ] blocks collision / docking
   - [ ] attach guns

@@ -185,9 +185,9 @@ Future tech stack changes:
   - [ ] spawn asteroids that contains blocks
   - [ ] Mobile multi-touch input
 - [ ] Multiplayer gameplay
-  - [x] Determinitic Lockstep
-  - [ ] Snapshot Interpolation
-  - [ ] State synchronization
+  - [x] Determinitic game rules
+  - [ ] Sync events to server, then back to other clients
+  - [ ] Snapshot the state, and rollback within some time
 - [ ] ===== Expected Game Jam Cut off =====
 - [ ] More gameplay
 - [ ] Dockerize
